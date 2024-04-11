@@ -18,12 +18,16 @@ export default function Survey() {
         setSubmitted(true);
 
         const formData = new FormData(event.currentTarget);
-        const dataObj = JSON.stringify(Object.fromEntries(formData));
-        console.log(dataObj)
+        let dataObj = {
+            surveyId: surveyId,
+            ...Object.fromEntries(formData) 
+        }
+        
 
         const response = await fetch('http://localhost:8055/flows/trigger/a4d3386d-8b9f-45cb-b623-01012c6ce83a', {
             method: 'POST',
-            body: dataObj
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(dataObj)
         }).catch(rejected => {
             console.log(rejected);
         });
@@ -36,7 +40,7 @@ export default function Survey() {
                     <h1 className="my-8 text-5xl font-bold">Hi, {firstName} {lastName} !</h1>
                     <h2 className="my-8 text-3xl">How would you rate your project with {agencyName} so far?</h2>
                     <form onSubmit={onSubmit}>
-                        <Stars name={'rating'} />
+                        <Stars name={'rating'} num={5} />
                         <div>
                             <button className="btn btn-primary" type="submit">Submit</button>
                         </div>

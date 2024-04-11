@@ -9,30 +9,18 @@ export default function Stars(props: any) {
 
   return (
     <div className="my-6 rating rating-lg">
-      <input
-        type="radio"
-        name={props.name}
-        value="1"
-        checked={rating === "1"}
-        onChange={onOptionChange}
-        className="mask mask-star-2 bg-orange-400"
-      />
-      <input
-        type="radio"
-        name={props.name}
-        value="2"
-        checked={rating === "2"}
-        onChange={onOptionChange}
-        className="mask mask-star-2 bg-orange-400"
-      />
-      <input
-        type="radio"
-        name={props.name}
-        value="3"
-        checked={rating === "3"}
-        onChange={onOptionChange}
-        className="mask mask-star-2 bg-orange-400"
-      />
+      {Array(props.num).fill(1).map((el, i) => (
+        <input
+          key={i+1}
+          type="radio"
+          name={props.name}
+          value={(i+1).toString()}
+          checked={rating === (i+1).toString()}
+          onChange={onOptionChange}
+          className="mask mask-star-2 bg-orange-400"
+        />
+      ))}
+      
     </div>
   )
 }
