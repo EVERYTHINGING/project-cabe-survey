@@ -40,7 +40,7 @@ export default function Survey() {
                     <h1 className="my-8 text-5xl font-bold">Hi, {firstName} {lastName} !</h1>
                     <h2 className="my-8 text-3xl">How would you rate your project with {agencyName} so far?</h2>
                     <form onSubmit={onSubmit}>
-                        <Stars name={'rating'} num={5} />
+                        <Stars name='rating' num={5} default='5' />
                         <div>
                             <button className="btn btn-primary" type="submit">Submit</button>
                         </div>

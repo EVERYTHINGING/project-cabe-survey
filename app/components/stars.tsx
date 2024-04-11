@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-export default function Stars(props: any) {
-  const [rating, setRating] = useState('1')
+export default function Stars(props: {num: number, name: string, default: string}) {
+  const [rating, setRating] = useState(props.default)
 
   function onOptionChange(e: React.ChangeEvent<HTMLInputElement>) {
     setRating(e.target.value)
