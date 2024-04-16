@@ -26,7 +26,7 @@ export default function Survey() {
             ...Object.fromEntries(formData) 
         }
 
-        const directusUrl = process.env.DIRECTUS_URL || 'https://dii1kdhm.clj5khk.gcp.restack.it/';
+        const directusUrl = process.env.DIRECTUS_URL || 'https://dii1kdhm.clj5khk.gcp.restack.it';
         
         const response = await fetch(`${directusUrl}/flows/trigger/a4d3386d-8b9f-45cb-b623-01012c6ce83a`, {
             method: 'POST',
