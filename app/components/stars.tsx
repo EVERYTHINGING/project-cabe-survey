@@ -8,7 +8,7 @@ export default function Stars(props: {num: number, name: string, default: string
   }
 
   return (
-    <div className="my-6 rating rating-lg">
+    <div className="rating rating-lg">
       {Array(props.num).fill(1).map((el, i) => (
         <input
           key={i+1}
@@ -17,7 +17,7 @@ export default function Stars(props: {num: number, name: string, default: string
           value={(i+1).toString()}
           checked={rating === (i+1).toString()}
           onChange={onOptionChange}
-          className="mask mask-star-2 bg-orange-400"
+          className="mask mask-star-2 bg-orange-400 mx-1"
         />
       ))}
       
