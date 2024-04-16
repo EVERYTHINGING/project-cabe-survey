@@ -25,8 +25,10 @@ export default function Survey() {
             surveyId: surveyId,
             ...Object.fromEntries(formData) 
         }
+
+        const directusUrl = process.env.SURVEY_URL || 'http://localhost:8055';
         
-        const response = await fetch('http://localhost:8055/flows/trigger/a4d3386d-8b9f-45cb-b623-01012c6ce83a', {
+        const response = await fetch(`${directusUrl}/flows/trigger/a4d3386d-8b9f-45cb-b623-01012c6ce83a`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(dataObj)
